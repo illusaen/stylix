@@ -2,6 +2,7 @@
 
 {
   options.stylix.cursor = {
+    enable = lib.mkEnableOption "Change cursor";
     name = lib.mkOption {
       description = "The cursor name within the package.";
       type = lib.types.str;

@@ -31,7 +31,10 @@ let
             "stylix"
             "base16Scheme"
           ];
-          condition = homeConfig: config.stylix.image == homeConfig.stylix.image;
+          condition =
+            homeConfig:
+            (config.stylix.image == homeConfig.stylix.image)
+            || (config.stylix.image != null && homeConfig.stylix.base16Scheme == null);
         }
         {
           path = [

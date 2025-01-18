@@ -12,11 +12,14 @@ in
 {
   imports = [ ../cursor.nix ];
 
-  config = lib.mkIf (config.stylix.enable && pkgs.stdenv.hostPlatform.isLinux) {
-    home.pointerCursor = {
-      inherit (cfg) name package size;
-      x11.enable = true;
-      gtk.enable = true;
-    };
-  };
+  config =
+    lib.mkIf
+      (config.stylix.enable && pkgs.stdenv.hostPlatform.isLinux && cfg.enable)
+      {
+        home.pointerCursor = {
+          inherit (cfg) name package size;
+          x11.enable = true;
+          gtk.enable = true;
+        };
+      };
 }
