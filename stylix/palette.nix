@@ -124,8 +124,9 @@ in
           path
           lines
           attrs
+          null
         ];
-      default = generatedScheme;
+      default = null;
       defaultText = lib.literalMD ''
         The colors used in the theming.
 
