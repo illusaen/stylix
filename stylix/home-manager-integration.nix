@@ -209,7 +209,9 @@ in
   config = lib.optionalAttrs (options ? home-manager) (
     lib.mkIf config.stylix.homeManagerIntegration.autoImport {
       home-manager.sharedModules =
-        [ homeManagerModule ]
+        [
+          homeManagerModule
+        ]
         ++ (lib.optionals config.stylix.homeManagerIntegration.followSystem copyModules);
     }
   );
